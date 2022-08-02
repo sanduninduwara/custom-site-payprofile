@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html> 
+<title>Stripe Payment Demo</title> 
+<body> 
+	
+	<form action="payment" method="POST"> 
+
+
+
+		<input id="test" type="text" value="10" name="test" hidden>
+
+	
+		<div style="text-align: center;">
+
+            <h3>Welcome to Payment Gateway</h3> 
+
+	
+			<script
+			src="https://checkout.stripe.com/checkout.js"
+			class="stripe-button"
+			data-key="<%= key %>"
+			data-name="Custom t-shirt"
+			data-description="Your custom designed t-shirt"
+			data-amount="<%= amount %>"
+			data-currency="usd">
+			</script>
+
+
+		</div>
+		
+
+	</form> 
+
+
+
+</body> 
+</html> 

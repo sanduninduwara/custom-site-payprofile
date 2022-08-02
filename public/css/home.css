@@ -1,0 +1,61 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background: rgb(122,255,240);
+background: linear-gradient(90deg, rgb(169, 255, 245) 0%, rgba(205,255,252,1) 21%, rgba(255,255,255,1) 100%);
+}
+.navbar{
+    background: rgb(55, 122, 114);
+background: linear-gradient(90deg, rgb(104, 226, 212) 0%, rgb(170, 255, 249) 21%, rgb(240, 255, 254) 100%);
+}
+
+.mainbtn{
+    margin:auto;
+    margin-top: 50px;
+    
+}
+
+.logincontainer{
+    background-color: rgb(200, 250, 241);
+    border-radius: 10px;
+    margin-top: 50px;
+    max-width: 600px;
+}
+
+.maintext{
+    color: rgb(64, 111, 253);
+}
+
+
+.dp{
+    /* margin-left: 100px; */
+    border-radius: 100px;
+    margin:auto;
+    display: block;
+}
+
+.input-group-text{
+    min-width: 100px;
+}
+
+.btn-info{
+    margin:auto;
+    margin-top: 5px;
+    
+    display: block;
+}
+
+
+  /* ---- */
+  .photoupload{
+     margin-top: 50px;
+  }
+
+  .videolinks{
+      margin-top: 50px;
+  }
+
+
+  /* ---------- */
+  @media (max-width: 767px){.carousel-inner .carousel-item >div{display: none}.carousel-inner .carousel-item >div:first-child{display: block}}.carousel-inner .carousel-item.active, .carousel-inner .carousel-item-next, .carousel-inner .carousel-item-prev{display: flex}@media (min-width: 768px){.carousel-inner .carousel-item-end.active, .carousel-inner .carousel-item-next{transform: translateX(25%)}.carousel-inner .carousel-item-start.active, .carousel-inner .carousel-item-prev{transform: translateX(-25%)}}.carousel-inner .carousel-item-end, .carousel-inner .carousel-item-start{transform: translateX(0)}
