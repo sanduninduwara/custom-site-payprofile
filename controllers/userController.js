@@ -3,12 +3,16 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const User = require('../models/userModel')
+const Pay = require('../models/payedModel')
+
+const maxAge = 3 * 24 * 60 * 60;
 
 // @desc    Register a new user
 // @route   /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
     const { name, email, password ,password2} = req.body
+    var msg;
 
     // Validation
     if (!name || !email || !password) {
@@ -19,14 +23,33 @@ const registerUser = asyncHandler(async (req, res) => {
     // Find if user already exists
     const userExists = await User.findOne({ email })
 
+    //find user has purchesed item
+    const payedUser = await Pay.findOne({ email })
+
+    if(!payedUser){
+      
+        msg="email not in purched item list!!"
+        res.render('Register',{msg:msg}) 
+        return
+        // res.status(400)
+        // throw new Error('email not in purched item list')
+    }
+
+
     if (password !== password2) {
-        res.status(400)
-        throw new Error('passwords are not mached')
+        msg="passwords are not mached!!"
+        res.render('Register',{msg:msg})
+        // res.status(400)
+        // throw new Error('passwords are not mached')
     }
 
     if (userExists) {
-        res.status(400)
-        throw new Error('Email already used')
+
+        msg="Email already used!!"
+        res.render('Register',{msg:msg}) 
+        return
+        // res.status(400)
+        // throw new Error('Email already used')
     }
 
     // Hash password
@@ -41,12 +64,15 @@ const registerUser = asyncHandler(async (req, res) => {
     })
 
     if (user) {
-        res.status(201).json({
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            token: generateToken(user._id),
-        })
+        // res.status(201).json({
+        //     _id: user._id,
+        //     name: user.name,
+        //     email: user.email,
+        //     token: generateToken(user._id),
+        // })
+
+        res.redirect('/users/login');
+        return;
     } else {
         res.status(400)
         throw new error('Invalid user data')
@@ -57,22 +83,30 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route   /api/users/login
 // @access  Public
 const loginUser = asyncHandler(async (req, res) => {
+   
     const { email, password } = req.body
 
     const user = await User.findOne({ email })
 
     // Check user and passwords match
     if (user && (await bcrypt.compare(password, user.password))) {
-        res.status(200).json({
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            token: generateToken(user._id),
-        })
+        const jwttoken=generateToken(user._id)
+        res.cookie('jwt', jwttoken, { httpOnly: true, maxAge: maxAge * 1000 });
+        res.redirect('/users/profile/'+user.name);
+
     } else {
-        res.status(401)
-        throw new Error('Invalid credentials')
+        // res.status(401)
+        // throw new Error('Invalid credentials')
+        res.render('Login',{msg:'Invalid credentials'})
+
     }
+})
+
+const logout = asyncHandler(async (req, res) => {
+    
+    
+    res.cookie('jwt','',{maxAge:1})
+    res.redirect('/users/login');
 })
 
 // @desc    Get current user
@@ -84,13 +118,13 @@ const getMe = asyncHandler(async (req, res) => {
         email: req.user.email,
         name: req.user.name,
     }
-    res.status(200).json(user)
+    res.render('Profile',{user:user})
 })
 
 // Generate token
 const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: '30d',
+        expiresIn: maxAge,
     })
 }
 
@@ -98,4 +132,5 @@ module.exports = {
     registerUser,
     loginUser,
     getMe,
+    logout,
 }

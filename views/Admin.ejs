@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Admin</title>
+</head>
+
+<body>
+
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid mx-5">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto mx-5 mb-10 p-15 mb-lg-0">
+
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active" href="/users/profile/<%= user.name %>">Profile</a>
+                    </li>
+
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active" href="/users/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+
+        <div class="row gx-5 mt-2">
+            <div class="col-4 border-end d-flex flex-column overflow-hidden vh-100">
+
+
+
+
+                <div class="p-3 overflow-auto h-100 py-5">
+                    <h1>Edit profile</h1>
+                    <form class="row g-3">
+
+                        <div class="col-12">
+                            <label for="userName" class="form-label">User name</label>
+                            <input type="text" class="form-control" id="userName" placeholder="<%= user.name %>">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="email" class="form-label">email</label>
+                            <input type="text" class="form-control" id="email" placeholder="<%= user.email %>">
+                        </div>
+
+
+                        <div class="col-12">
+                            <label for="date" class="form-label">date</label>
+                            <input type="text" class="form-control" id="date" placeholder="1997/11/20">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="job" class="form-label">job</label>
+                            <input type="text" class="form-control" id="job" placeholder="doctor">
+                        </div>
+
+
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <!-- <a href="./login.html" class="btn btn-primary"> Submit</a> -->
+                        </div>
+                    </form>
+
+                    <!-- p -->
+                    <div class="p-3 text-center my-3">
+                        <h1>Biography</h1>
+                        <p class="text-start">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                            commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+                            parturient
+                            montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                            quis,
+                            sem.
+                            Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
+                            eget,
+                            arcu.
+                            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
+                            mollis
+                            pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate
+                            eleifend
+                            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem
+                            ante,
+                            dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
+                            laoreet.
+                            Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper
+                            ultricies
+                            nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
+                            quam
+                            semper
+                            libero, sit amet adipiscing sem neque sed ipsum. N</p>
+
+                            <div class="mb-3">
+                               
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <button type="submit" class="btn btn-primary mt-2">Save</button>
+                              </div>
+                    </div>
+
+                    <div class="p-3 text-center my-3">
+                        <h1>Biography</h1>
+                        <p class="text-start">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                            commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+                            parturient
+                            montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                            quis,
+                            sem.
+                            Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
+                            eget,
+                            arcu.
+                            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
+                            mollis
+                            pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate
+                            eleifend
+                            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem
+                            ante,
+                            dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
+                            laoreet.
+                            Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper
+                            ultricies
+                            nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
+                            quam
+                            semper
+                            libero, sit amet adipiscing sem neque sed ipsum. N</p>
+
+                            <div class="mb-3">
+                               
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <button type="submit" class="btn btn-primary mt-2">Save</button>
+
+                              </div>
+                    </div>
+
+
+
+
+                    <!-- file inputs -->
+
+                    <div class="col-12">
+                        <h4>Photo</h4>
+                        <input type="file" class="form-control" id="inputGroupFile02">
+                        <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
+                        <button class="mt-2 btn btn-primary">Upload</button>
+
+                    </div>
+
+
+                    <div class="col-12 videolinks">
+                        <h4>Video</h4>
+                        <input type="text" class="form-control mb-2" placeholder="https://www.youtube.com/"
+                            aria-label="Username" aria-describedby="basic-addon1" disabled>
+                        <input type="text" class="form-control mb-2" placeholder="https://vimeo.com/"
+                            aria-label="Username" aria-describedby="basic-addon1" disabled>
+                        <a href="#"><b> + add more videos</b></a>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col  d-flex flex-column overflow-hidden vh-100">
+
+                <div class="p-3 overflow-auto h-100 py-5">
+
+                    <div class="row gx-5 mt-5">
+                        <div class="col">
+                            <div class="p-3 ">
+                                <img class="dp"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTxFBXtxpsxNhINJ5opoMXgSkTqfiZLbjtymhvWqMO2XvAwAWEEktCDVLQlq2ojTfz_Ls&usqp=CAU"
+                                    alt="">
+
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-3 mt-3 ">
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">User name</span>
+                                    <input type="text" class="form-control" placeholder="<%= user.name %>"
+                                        aria-label="Username" aria-describedby="basic-addon1" disabled>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">email</span>
+                                    <input type="text" class="form-control" placeholder="<%= user.email %>"
+                                        aria-label="Username" aria-describedby="basic-addon1" disabled>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">date</span>
+                                    <input type="text" class="form-control" placeholder="1997/11/20"
+                                        aria-label="Username" aria-describedby="basic-addon1" disabled>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">job</span>
+                                    <input type="text" class="form-control" placeholder="doctor" aria-label="Username"
+                                        aria-describedby="basic-addon1" disabled>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gx-5 mt-5">
+                        <div class="col">
+
+                            <div class="p-3 text-center my-3">
+                                <h1>Biography</h1>
+                                <p class="text-start">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                                    commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+                                    parturient
+                                    montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                                    pretium quis,
+                                    sem.
+                                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
+                                    vulputate eget,
+                                    arcu.
+                                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
+                                    eu pede
+                                    mollis
+                                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
+                                    vulputate
+                                    eleifend
+                                    tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam
+                                    lorem ante,
+                                    dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
+                                    laoreet.
+                                    Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+                                    ullamcorper
+                                    ultricies
+                                    nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus,
+                                    sem quam
+                                    semper
+                                    libero, sit amet adipiscing sem neque sed ipsum. N</p>
+
+                                    
+                            </div>
+
+                            <div class="p-3 text-center my-3">
+                                <h1>Biography</h1>
+                                <p class="text-start">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                                    commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+                                    parturient
+                                    montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                                    pretium quis,
+                                    sem.
+                                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
+                                    vulputate eget,
+                                    arcu.
+                                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
+                                    eu pede
+                                    mollis
+                                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
+                                    vulputate
+                                    eleifend
+                                    tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam
+                                    lorem ante,
+                                    dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
+                                    laoreet.
+                                    Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+                                    ullamcorper
+                                    ultricies
+                                    nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus,
+                                    sem quam
+                                    semper
+                                    libero, sit amet adipiscing sem neque sed ipsum. N</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row gx-5 mt-5">
+                        <div class="container text-center my-3">
+                            <h2 class="font-weight-light">Photos</h2>
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/1.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 1</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/2.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 2</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/3.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 3</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/4.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 4</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/5.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 5</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/6.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 6</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel"
+                                        role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon"
+                                            aria-hidden="true"></span> </a> <a
+                                        class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel"
+                                        role="button" data-bs-slide="next"> <span class="carousel-control-next-icon"
+                                            aria-hidden="true"></span> </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row gx-5 mt-5">
+                        <div class="container text-center my-3">
+                            <h2 class="font-weight-light">Videos</h2>
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel2" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/1.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 1</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/2.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 2</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/3.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 3</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/4.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 4</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/5.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 5</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img"> <img src="/imgs/6.png"
+                                                            class="img-fluid"> </div>
+                                                    <div class="card-img-overlay">Slide 6</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel2"
+                                        role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon"
+                                            aria-hidden="true"></span> </a> <a
+                                        class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel2"
+                                        role="button" data-bs-slide="next"> <span class="carousel-control-next-icon"
+                                            aria-hidden="true"></span> </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="/scrool.js"></script>
+</body>
+
+</html>

@@ -2,34 +2,48 @@ const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 
-const protect = asyncHandler(async (req, res, next) => {
-    let token
 
-    if (
-        req.headers.authorization &&
-        req.headers.authorization.startsWith('Bearer')
-    ) {
-        try {
-            // Get token from header
-            token = req.headers.authorization.split(' ')[1]
-            // Verify token
-            const decoded = jwt.verify(token, process.env.JWT_SECRET)
-            // Get user from token
-            req.user = await User.findById(decoded.id).select('-password')
 
-            next()
-        } catch (error) {
-            console.log(req.headers.authorization.split(' ')[1])
-            console.log(error)
-            res.status(401)
-            throw new Error('Not authorized')
-        }
-    }
+const requireAuth = (req, res, next) => {
+  const token = req.cookies.jwt;
 
-    if (!token) {
-        res.status(401)
-        throw new Error('Not authorized')
-    }
-})
+  // check json web token exists & is verified
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
+      if (err) {
+        console.log(err.message);
+        res.redirect('/users/login');
+      } else {
+        console.log(decodedToken);
+        next();
+      }
+    });
+  } else {
+    res.redirect('/users/login');
+  }
+};
 
-module.exports = { protect }
+// check current user
+const checkUser = (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token,process.env.JWT_SECRET, async (err, decodedToken) => {
+      if (err) {
+        req.user = null;
+        next();
+      } else {
+        let user = await User.findById(decodedToken.id).select('-password');
+        req.user = user;
+        next();
+      }
+    });
+  } else {
+    // res.locals.user = null;
+    // next();
+    res.redirect('/users/login');
+  }
+};
+
+
+module.exports = { requireAuth, checkUser };
+

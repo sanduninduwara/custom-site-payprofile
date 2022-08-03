@@ -38,33 +38,40 @@
 
 
     <div class="container">
+        <div class="alert mt-2 mx-auto" style="width: 50%;" role="alert">
+          
+          <h6 style="color: rgb(105, 37, 177);"><%= msg %> </h6>
+        </div>
 
         <form class="logincontainer row g-3 p-5 mx-auto " method="post" action="/users/register">
             <h1 class="maintext">Register</h1>
+            <div class="col-12">
+              <h5 style="color: rgb(23, 115, 148);">email should be similar to the purchased item Email</h5>
+          </div>
              <!-- username input -->
              <div class="col-12">
                 <label class="form-label" for="name">User name</label>
-              <input type="text" id="name" name="name" class="form-control" />
+              <input type="text" id="name" name="name" class="form-control" required/>
               
             </div>
             <!-- Email input -->
             <div class="col-12">
                 <label class="form-label" for="email">Email address</label>
-              <input type="email" id="email" name="email" class="form-control" />
+              <input type="email" id="email" name="email" class="form-control" required/>
               
             </div>
           
             <!-- Password input -->
             <div class="col-12">
                 <label class="form-label" for="password">Password</label>
-              <input type="password" id="password" name="password" class="form-control" />
+              <input type="password" id="password" name="password" class="form-control" required/>
              
             </div>
 
             <!-- confirm Password input -->
                 <div class="col-12">
                     <label class="form-label" for="password2">Confirm Password</label>
-                    <input type="password" id="password2" name="password2" class="form-control" />
+                    <input type="password" id="password2" name="password2" class="form-control" required/>
                    
                   </div>
           

@@ -1,4 +1,4 @@
-var Publishable_Key = 'pk_test_51LRTd2G9NamjyI6ZnZRqVwsEqx68I8eHRTI3nccori6yCvjnSZL9UneoMuNU4BrNbNkv0JsktxNFIO7YOafPcEvQ004gX1vTQl'
+var Publishable_Key =  process.env.PAY_PUBLIC
 
 
 const billingShipping=(req, res)=>{
@@ -10,7 +10,7 @@ const billingShipping=(req, res)=>{
         throw new Error('fill all fields')
     }
 
-    res.render('Pay',{ key: Publishable_Key , amount:"8000"})
+    res.render('Pay',{ key: Publishable_Key , amount:hidden})
 
 
     

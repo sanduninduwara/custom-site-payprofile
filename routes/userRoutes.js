@@ -4,22 +4,33 @@ const {
     registerUser,
     loginUser,
     getMe,
+    logout,
 } = require('../controllers/userController')
 
-const { protect } = require('../middleware/authMiddleware')
+const { requireAuth ,checkUser } = require('../middleware/authMiddleware')
 
 router.get('/login', (req, res)=>{ 
-    res.render('Login') 
+    res.render('Login',{msg:''}) 
 
 }) 
 router.get('/register', (req, res)=>{ 
-    res.render('Register') 
+    res.render('Register',{msg:""}) 
 
 }) 
 
+// router.get('/profile', requireAuth,checkUser, (req, res)=>{ 
+//     res.render('Profile') 
+
+// }) 
+
 router.post('/register', registerUser)
 router.post('/login', loginUser)
-router.get('/me', protect, getMe)
+router.get('/profile/:username',checkUser, getMe)
+
+router.get('/logout', logout)
+
+
+
 
 module.exports = router
 

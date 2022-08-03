@@ -46,14 +46,14 @@
             <!-- Email input -->
             <div class="col-12">
                 <label class="form-label" for="email">Email address</label>
-              <input type="email" id="email" name="email" class="form-control" />
+              <input type="email" id="email" name="email" class="form-control" required/>
               
             </div>
           
             <!-- Password input -->
             <div class="col-12">
                 <label class="form-label" for="password">Password</label>
-              <input type="password" id="password" name="password" class="form-control" />
+              <input type="password" id="password" name="password" class="form-control" required/>
               
             </div>
           
@@ -71,6 +71,10 @@
                 <!-- Simple link -->
                 <a href="/users/register">Create a new account?</a>
               </div>
+            </div>
+
+            <div class="row mt-4">
+              <h6 class="m-auto" style="color: rgb(230, 28, 28);"><%= msg %> </h6>
             </div>
           
             <!-- Submit button -->

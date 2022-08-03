@@ -66,9 +66,9 @@
                                                     <p class="card-text">1000$</p>
                                                     <p class="card-text">about package details</p>
                                                     <button class="btn btn-primary" id="starter"
-                                                        onclick="setValue(this.id)" type="button"
+                                                        onclick="setValue(this)" type="button"
                                                         data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-                                                        data-bs-dismiss="modal">Buy now</button>
+                                                        data-bs-dismiss="modal" value="1000">Buy now</button>
                                                 </div>
                                             </div>
 
@@ -80,9 +80,9 @@
                                                     <h5 class="card-title">pro package</h5>
                                                     <p class="card-text">2000$</p>
                                                     <p class="card-text">about package details</p>
-                                                    <button class="btn btn-primary" id="pro" onclick="setValue(this.id)"
+                                                    <button class="btn btn-primary" id="pro" onclick="setValue(this)"
                                                         type="button" data-bs-target="#exampleModalToggle2"
-                                                        data-bs-toggle="modal" data-bs-dismiss="modal">Buy now</button>
+                                                        data-bs-toggle="modal" data-bs-dismiss="modal" value="2000">Buy now</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,27 +121,21 @@
                                 <div class="col-12">
                                     <label for="inputAddress" class="form-label">Address</label>
                                     <input type="text" class="form-control" name="inputAddress" id="inputAddress"
-                                        placeholder="1234 Main St">
+                                        placeholder="1234 Main St" required>
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress2" class="form-label">Address 2</label>
                                     <input type="text" class="form-control" id="inputAddress2"
-                                        placeholder="Apartment, studio, or floor">
+                                        placeholder="Apartment, studio, or floor" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputCity" class="form-label">City</label>
-                                    <input type="text" class="form-control" id="inputCity">
+                                    <input type="text" class="form-control" id="inputCity" required>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="inputState" class="form-label">State</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                </div>
+                              
                                 <div class="col-md-2">
                                     <label for="inputZip" class="form-label">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip">
+                                    <input type="text" class="form-control" id="inputZip" required>
                                 </div>
 
                                 
@@ -181,9 +175,9 @@
 
         var value = document.getElementById("hidden");
 
-        function setValue(id) {
-            console.log(id)
-            value.value = id;
+        function setValue(e) {
+            console.log(e.value)
+            value.value = e.value+"00";
         }
     </script>
 
