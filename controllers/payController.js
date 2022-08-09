@@ -6,7 +6,7 @@ var uniqid = require('uniqid');
 
 
 
-const  payfee= asyncHandler(async(req, res)=>{
+const  payfee= (req, res)=>{
     const {amount,inputAddress} = req.body
     var uid=uniqid();
     console.log(amount,inputAddress);
@@ -41,21 +41,17 @@ const  payfee= asyncHandler(async(req, res)=>{
                 customer: customer.id 
             }); 
         }) 
-        .then(
-            Pay.create({
+        .then((charge) => { 
+           return Pay.create({
             email: req.body.stripeEmail,
             addresses: inputAddress,
             uid:uid
 
             })
-            )
+        })
              
         .then((charge) => { 
-            // const payeduser = await Pay.create({
-           
-            //     email,
-            //     addresses: JSON.stringify(addresses)
-            // })
+            // console.log(charge.addresses)
             console.log(uid)
           
             res.render('Register',{msg:"payment Successfull! your secret code is: "+uid}) 
@@ -66,7 +62,7 @@ const  payfee= asyncHandler(async(req, res)=>{
         }); 
    
     
-})
+}
 
 
 
