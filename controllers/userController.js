@@ -11,24 +11,24 @@ const maxAge = 3 * 24 * 60 * 60;
 // @route   /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-    const { name, email, password ,password2} = req.body
+    const { name, email,uid, password ,password2} = req.body
     var msg;
 
     // Validation
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !uid) {
         res.status(400)
         throw new Error('Please include all fields')
     }
 
     // Find if user already exists
-    const userExists = await User.findOne({ email })
+    const uidexist = await User.findOne({ uid })
 
     //find user has purchesed item
-    const payedUser = await Pay.findOne({ email })
+    const secretcode = await Pay.findOne({ uid })
 
-    if(!payedUser){
+    if(!secretcode){
       
-        msg="email not in purched item list!!"
+        msg="secretcode not in purched item list!!"
         res.render('Register',{msg:msg}) 
         return
         // res.status(400)
@@ -43,13 +43,12 @@ const registerUser = asyncHandler(async (req, res) => {
         // throw new Error('passwords are not mached')
     }
 
-    if (userExists) {
+    if (uidexist) {
 
-        msg="Email already used!!"
+        msg="secretcode already used!!"
         res.render('Register',{msg:msg}) 
         return
-        // res.status(400)
-        // throw new Error('Email already used')
+      
     }
 
     // Hash password
@@ -60,6 +59,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const user = await User.create({
         name,
         email,
+        uid,
         password: hashedPassword,
     })
 
@@ -84,9 +84,14 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access  Public
 const loginUser = asyncHandler(async (req, res) => {
    
-    const { email, password } = req.body
+    const { email,uid, password } = req.body
 
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ uid })
+    
+
+    if(!user || user.email !==email){
+        res.render('Login',{msg:'Invalid credentials'})
+    }
 
     // Check user and passwords match
     if (user && (await bcrypt.compare(password, user.password))) {

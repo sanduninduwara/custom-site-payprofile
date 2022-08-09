@@ -12,6 +12,11 @@ const payedSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please add a address'],
         },
+        uid: {
+            type: String,
+            required: [true, 'Please add an uid'],
+            unique: true,
+        },
         
     },
     {
